@@ -1,0 +1,19 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"extends": [
+		"eslint:recommended",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
+		"airbnb",
+		"airbnb/hooks",
+		"plugin:import/typescript",
+		"plugin:prettier/recommended"
+	],
+	"plugins": ["@typescript-eslint"],
+	"env": {
+		"browser": true
+	},
+	"rules": {
+		"react/jsx-filename-extension": [1, { "extensions": [".tsx"] }]
+	}
+}

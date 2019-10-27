@@ -1,0 +1,88 @@
+{
+	"name": "hotter",
+	"version": "1.0.0",
+	"private": true,
+	"license": "UNLICENSED",
+	"scripts": {
+		"commit": "git add . && git cz",
+		"start": "webpack-dev-server --config ./.config/webpack.js"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.6.4",
+		"@babel/preset-react": "^7.6.3",
+		"@babel/preset-typescript": "^7.6.0",
+		"@types/react": "^16.9.10",
+		"@types/react-dom": "^16.9.2",
+		"@types/webpack": "^4.39.5",
+		"@typescript-eslint/eslint-plugin": "^2.5.0",
+		"@typescript-eslint/parser": "2.5.0",
+		"babel-loader": "^8.0.6",
+		"commitizen": "4.0.3",
+		"css-loader": "3.2.0",
+		"cz-conventional-changelog": "3.0.2",
+		"eslint": "6.5.1",
+		"eslint-config-airbnb": "18.0.1",
+		"eslint-config-prettier": "^6.5.0",
+		"eslint-plugin-import": "2.18.2",
+		"eslint-plugin-jsx-a11y": "6.2.3",
+		"eslint-plugin-prettier": "^3.1.1",
+		"eslint-plugin-react": "7.16.0",
+		"eslint-plugin-react-hooks": "^2.2.0",
+		"fibers": "4.0.2",
+		"html-webpack-plugin": "3.2.0",
+		"husky": "3.0.9",
+		"lint-staged": "9.4.2",
+		"prettier": "1.18.2",
+		"sass": "1.23.1",
+		"sass-loader": "8.0.0",
+		"style-loader": "1.0.0",
+		"stylelint": "11.1.1",
+		"stylelint-8-point-grid": "0.2.3",
+		"stylelint-config-prettier": "^6.0.0",
+		"stylelint-config-standard": "19.0.0",
+		"stylelint-declaration-block-no-ignored-properties": "2.1.0",
+		"stylelint-prettier": "^1.1.1",
+		"stylelint-scss": "3.12.0",
+		"thread-loader": "2.1.3",
+		"typescript": "3.6.4",
+		"webpack": "4.41.2",
+		"webpack-cli": "3.3.9",
+		"webpack-dev-server": "3.9.0"
+	},
+	"dependencies": {
+		"normalize.css": "8.0.1",
+		"react": "^16.11.0",
+		"react-dom": "npm:@hot-loader/react-dom",
+		"react-hot-loader": "^4.12.15"
+	},
+	"prettier": {
+		"tabWidth": 4,
+		"useTabs": true,
+		"endOfLine": "lf",
+		"singleQuote": true,
+		"trailingComma": "es5",
+		"bracketSpacing": true
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": [
+			"eslint --fix --config .config/.eslintrc --ignore-path .config/.eslintignore",
+			"prettier --write",
+			"git add"
+		],
+		"*.{html,scss}": [
+			"stylelint --fix --config .stylelintrc",
+			"prettier --write",
+			"git add"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
+}

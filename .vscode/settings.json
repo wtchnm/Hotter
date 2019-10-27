@@ -1,0 +1,10 @@
+{
+	"css.validate": false,
+	"scss.validate": false,
+	"eslint.validate": ["javascript", "typescript", "typescriptreact"],
+	"eslint.options": {
+		"configFile": ".config/.eslintrc",
+		"ignorePath": ".config/.eslintignore"
+	},
+	"prettier.ignorePath": ".config/.prettierignore"
+}
