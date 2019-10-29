@@ -1,8 +1,7 @@
 {
 	"name": "hotter",
 	"version": "1.0.0",
-	"private": true,
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"scripts": {
 		"commit": "git add . && git cz",
 		"start": "webpack-dev-server --config ./.config/webpack.js",
