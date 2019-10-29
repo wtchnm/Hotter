@@ -2,18 +2,29 @@
 	"parser": "@typescript-eslint/parser",
 	"extends": [
 		"eslint:recommended",
-		"plugin:@typescript-eslint/eslint-recommended",
-		"plugin:@typescript-eslint/recommended",
 		"airbnb",
 		"airbnb/hooks",
+		"plugin:@typescript-eslint/eslint-recommended",
+		"plugin:@typescript-eslint/recommended",
 		"plugin:import/typescript",
-		"plugin:prettier/recommended"
+		"plugin:prettier/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:jest/recommended",
+		"plugin:jest/style"
 	],
-	"plugins": ["@typescript-eslint"],
 	"env": {
 		"browser": true
 	},
 	"rules": {
-		"react/jsx-filename-extension": [1, { "extensions": [".tsx"] }]
+		"react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+		"react/jsx-one-expression-per-line": "off",
+		"react/prop-types": "off",
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": ["test/**", ".config/webpack.js"],
+				"optionalDependencies": false
+			}
+		]
 	}
 }
