@@ -22,7 +22,7 @@
 		"import/no-extraneous-dependencies": [
 			"error",
 			{
-				"devDependencies": ["test/**", ".config/webpack.js"],
+				"devDependencies": ["test/**", ".config/webpack/**"],
 				"optionalDependencies": false
 			}
 		]
