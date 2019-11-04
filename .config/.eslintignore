@@ -1,1 +1,4 @@
 !.config/
+test/__mocks__
+test/mocks
+mocks

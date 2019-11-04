@@ -13,6 +13,7 @@ const DartSass = require('sass');
 const WebpackBar = require('webpackbar');
 const webpack = require('webpack');
 const ThreadLoader = require('thread-loader');
+const OfflinePlugin = require('offline-plugin');
 
 ThreadLoader.warmup(
 	{
@@ -66,6 +67,17 @@ module.exports = {
 			filename: path.join('css', '[name].[chunkhash].css'),
 		}),
 		new webpack.HashedModuleIdsPlugin(),
+		new OfflinePlugin({
+			externals: [
+				'https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap',
+			],
+			excludes: ['**/.*', '**/*.map', '**/*.gz', 'index.html'],
+			AppCache: false,
+			ServiceWorker: {
+				events: true,
+				minify: true,
+			},
+		}),
 		new HardSourceWebpackPlugin({
 			info: {
 				mode: 'none',
