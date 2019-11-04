@@ -72,7 +72,7 @@
 	},
 	"dependencies": {
 		"normalize.css": "8.0.1",
-		"offline-plugin": "^5.0.7",
+		"offline-plugin": "5.0.7",
 		"react": "16.11.0",
 		"react-dom": "npm:@hot-loader/react-dom",
 		"react-hot-loader": "4.12.15"
