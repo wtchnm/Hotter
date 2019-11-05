@@ -98,5 +98,17 @@
 		"commitizen": {
 			"path": "./node_modules/cz-conventional-changelog"
 		}
+	},
+	"renovate": {
+		"extends": [
+			"config:base"
+		],
+		"automerge": true,
+		"major": {
+			"automerge": false,
+			"assignees": [
+				"woitechen"
+			]
+		}
 	}
 }

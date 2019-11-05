@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
 import React from 'react';
-import App from '../src/App';
+import App from '../src/components/App';
 
 it('renders with or without a location', () => {
 	const { container, getByText, rerender } = render(<App />);
