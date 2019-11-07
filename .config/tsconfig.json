@@ -3,7 +3,6 @@
 		"allowSyntheticDefaultImports": true,
 		"module": "esnext",
 		"target": "esnext",
-		"newLine": "LF",
 		"strict": true,
 		"jsx": "react",
 		"esModuleInterop": true

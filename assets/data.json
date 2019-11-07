@@ -1,0 +1,26 @@
+[
+	{
+		"id": 0,
+		"openingTimestamp": 1572370100,
+		"openingUser": "woitechen",
+		"openingName": "Gabriel Woitechen",
+		"closingTimestamp": null,
+		"closingUser": null,
+		"closingName": null,
+		"reason": "Exame necessita de pedido médico.",
+		"solution": "O pedido médico deve ser anexado na galeria de anexos.",
+		"closed": false
+	},
+	{
+		"id": 1,
+		"openingTimestamp": 1572280500,
+		"openingUser": "woitechen",
+		"openingName": "Gabriel Woitechen",
+		"closingTimestamp": 1572275580,
+		"closingUser": "dimas",
+		"closingName": "Dimas Francisco Silva Júnior",
+		"reason": "Exame tem imagens faltantes.",
+		"solution": "As imagens faltantes devem ser enviadas à plataforma.",
+		"closed": true
+	}
+]

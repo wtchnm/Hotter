@@ -25,6 +25,9 @@
 				"devDependencies": ["test/**", ".config/webpack/**"],
 				"optionalDependencies": false
 			}
-		]
+		],
+		"react/jsx-indent": "off",
+		"react/jsx-indent-props": "off",
+		"react/jsx-props-no-spreading": "off"
 	}
 }

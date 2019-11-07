@@ -1,14 +1,28 @@
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import { hot } from 'react-hot-loader/root';
-import './App.scss';
+import Dialog from './Dialog';
 
-const App: React.FC<{
-	location?: string;
-}> = ({ location }) => {
-	if (location !== undefined) {
-		return <h1>It&apos;s hot here in {location}!</h1>;
-	}
-	return <h1>It&apos;s hot here!</h1>;
+const theme = createMuiTheme({
+	palette: {
+		primary: {
+			main: '#5399DB',
+		},
+		secondary: {
+			main: '#172A3C',
+		},
+	},
+	typography: {
+		fontFamily: 'Lato, sans-serif',
+	},
+});
+
+const App: React.FC = () => {
+	return (
+		<ThemeProvider theme={theme}>
+			<Dialog />
+		</ThemeProvider>
+	);
 };
 
 export default hot(App);
