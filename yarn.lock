@@ -1044,7 +1044,7 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^13.0.0"
 
-"@material-ui/core@^4.5.2":
+"@material-ui/core@4.5.2":
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.5.2.tgz#90a27655db527326876f4390a9d28d69de2ed639"
   integrity sha512-yARw/hwavOXqljP+biDXHcmfbC63n8EkA8C10/tZt7KkBp7fs+7+z3BNR+ffotd8/uhirIC1jQWWKdLoUc34yA==
@@ -8468,7 +8468,7 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     prop-types "^15.6.2"
     scheduler "^0.16.2"
 
-react-hook-form@^3.26.5:
+react-hook-form@3.26.5:
   version "3.26.5"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-3.26.5.tgz#fa8a5cee8426c6cfb335b3409984d3a97f3326b1"
   integrity sha512-FwzuelP/awOGRRkc9UbL6rp9gHXa2eYZYzFhkXI8s6BUShP+p5KM6l94cYMjw1QostuJRWd6IjPRoejX6TrJ1w==
