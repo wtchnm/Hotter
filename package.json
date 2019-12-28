@@ -57,7 +57,7 @@
 		"stylelint-8-point-grid": "0.2.3",
 		"stylelint-config-prettier": "6.0.0",
 		"stylelint-config-standard": "19.0.0",
-		"stylelint-declaration-block-no-ignored-properties": "2.1.0",
+		"stylelint-declaration-block-no-ignored-properties": "2.2.0",
 		"stylelint-prettier": "1.1.1",
 		"stylelint-scss": "3.12.1",
 		"superstatic": "6.0.4",
