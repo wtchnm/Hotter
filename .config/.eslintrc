@@ -4,13 +4,11 @@
 		"eslint:recommended",
 		"airbnb",
 		"airbnb/hooks",
+		"plugin:import/typescript",
 		"plugin:@typescript-eslint/eslint-recommended",
 		"plugin:@typescript-eslint/recommended",
-		"plugin:import/typescript",
 		"plugin:prettier/recommended",
-		"prettier/@typescript-eslint",
-		"plugin:jest/recommended",
-		"plugin:jest/style"
+		"prettier/@typescript-eslint"
 	],
 	"env": {
 		"browser": true
@@ -24,6 +22,12 @@
 			{
 				"devDependencies": ["test/**", ".config/webpack/**"],
 				"optionalDependencies": false
+			}
+		],
+		"import/extensions": [
+			"error",
+			{
+				"ts": "never"
 			}
 		]
 	}
