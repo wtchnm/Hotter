@@ -20,7 +20,7 @@
 		"import/no-extraneous-dependencies": [
 			"error",
 			{
-				"devDependencies": ["test/**", ".config/webpack/**"],
+				"devDependencies": [".config/webpack/**"],
 				"optionalDependencies": false
 			}
 		],
