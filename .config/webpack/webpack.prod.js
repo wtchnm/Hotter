@@ -9,21 +9,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-const WebpackBar = require('webpackbar');
-const webpack = require('webpack');
 const workboxPlugin = require('workbox-webpack-plugin');
+const WebpackBar = require('webpackbar');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 module.exports = env => ({
 	mode: 'production',
 	target: 'web',
-	stats: 'errors-only',
+	stats: { preset: 'errors-only' },
 	entry: path.resolve('src/index.tsx'),
 	output: {
-		path: path.resolve('dist'),
-		filename: 'js/[name].[chunkhash].js'
+		filename: 'js/[name].[chunkhash].js',
+		ecmaVersion: 5
 	},
 	resolve: { extensions: ['.tsx', '.ts', '.js', '.jsx'] },
 	optimization: {
@@ -59,17 +57,8 @@ module.exports = env => ({
 			skipWaiting: true
 		}),
 		new MiniCssExtractPlugin({
-			filename: path.join('css', '[name].[chunkhash].css')
+			filename: 'css/[name].[chunkhash].css'
 		}),
-		new webpack.HashedModuleIdsPlugin(),
-		env &&
-			env.profile !== true &&
-			new HardSourceWebpackPlugin({
-				info: {
-					mode: 'none',
-					level: 'error'
-				}
-			}),
 		env && env.analyze && new BundleAnalyzerPlugin()
 	].filter(Boolean),
 	module: {
