@@ -1,5 +1,5 @@
-import * as OfflinePluginRuntime from 'offline-plugin/runtime';
-
-OfflinePluginRuntime.install({
-	onUpdateReady: () => OfflinePluginRuntime.applyUpdate(),
-});
+if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
+	window.addEventListener('load', () => {
+		navigator.serviceWorker.register('/service-worker.js');
+	});
+}

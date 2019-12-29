@@ -1,6 +1,11 @@
+import 'normalize.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
-import './utilities/ServiceWorker';
+import './utilities/serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('container'));
+// Container creation
+const container = document.createElement('div');
+document.body.appendChild(container);
+
+ReactDOM.render(<App />, container);

@@ -2,7 +2,6 @@
 // @ts-check
 const path = require('path');
 const os = require('os');
-const DartSass = require('sass');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ThreadLoader = require('thread-loader');
@@ -10,7 +9,7 @@ const ThreadLoader = require('thread-loader');
 ThreadLoader.warmup(
 	{
 		workers: os.cpus().length - 1,
-		poolTimeout: Infinity,
+		poolTimeout: Infinity
 	},
 	['babel-loader']
 );
@@ -20,10 +19,8 @@ module.exports = {
 	entry: ['react-hot-loader/patch', path.resolve('src/index.tsx')],
 	target: 'web',
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: path.resolve('assets/template.html'),
-		}),
-		new webpack.HotModuleReplacementPlugin(),
+		new HtmlWebpackPlugin(),
+		new webpack.HotModuleReplacementPlugin()
 	],
 	devServer: {
 		contentBase: path.resolve('assets'),
@@ -32,10 +29,10 @@ module.exports = {
 		historyApiFallback: true,
 		hot: true,
 		open: true,
-		stats: 'errors-only',
+		stats: 'errors-only'
 	},
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js', '.jsx'],
+		extensions: ['.tsx', '.ts', '.js', '.jsx']
 	},
 	module: {
 		rules: [
@@ -47,8 +44,8 @@ module.exports = {
 						loader: 'thread-loader',
 						options: {
 							workers: os.cpus().length - 1,
-							poolTimeout: Infinity,
-						},
+							poolTimeout: Infinity
+						}
 					},
 					{
 						loader: 'babel-loader',
@@ -56,38 +53,34 @@ module.exports = {
 							cacheDirectory: true,
 							babelrc: false,
 							presets: [
-								'@babel/preset-typescript',
+								[
+									'@babel/preset-typescript',
+									{
+										allExtensions: true,
+										isTSX: true
+									}
+								],
 								[
 									'@babel/preset-react',
 									{
-										development: true,
-									},
-								],
+										useBuiltIns: true,
+										development: true
+									}
+								]
 							],
-							plugins: ['react-hot-loader/babel'],
-						},
-					},
-				],
+							plugins: ['react-hot-loader/babel']
+						}
+					}
+				]
 			},
 			{
 				test: /\.css$/i,
-				include: path.resolve('node_modules', 'normalize'),
-				use: ['style-loader', 'css-loader'],
-			},
-			{
-				test: /\.(scss|sass)$/i,
-				include: path.resolve('src'),
-				use: [
-					'style-loader',
-					'css-loader',
-					{
-						loader: 'sass-loader',
-						options: {
-							implementation: DartSass,
-						},
-					},
+				include: [
+					path.resolve('node_modules', 'normalize'),
+					path.resolve('src')
 				],
-			},
-		],
-	},
+				use: ['style-loader', 'css-loader']
+			}
+		]
+	}
 };

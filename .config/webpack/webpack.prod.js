@@ -3,45 +3,44 @@
 const path = require('path');
 const os = require('os');
 const CSSNano = require('cssnano');
+const PostCSSImport = require('postcss-import');
 const PostCSSPresetEnv = require('postcss-preset-env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
-const DartSass = require('sass');
 const WebpackBar = require('webpackbar');
 const webpack = require('webpack');
 const ThreadLoader = require('thread-loader');
-const OfflinePlugin = require('offline-plugin');
+const workboxPlugin = require('workbox-webpack-plugin');
 
 ThreadLoader.warmup(
 	{
-		workers: os.cpus().length - 1,
+		workers: os.cpus().length - 1
 	},
-	['babel-loader', 'sass-loader']
+	['babel-loader']
 );
 
 module.exports = {
 	mode: 'production',
 	target: 'web',
 	stats: 'errors-only',
-	entry: path.resolve('src', 'index.tsx'),
+	entry: path.resolve('src/index.tsx'),
 	output: {
 		path: path.resolve('dist'),
-		filename: 'js/[name].[chunkhash].js',
+		filename: 'js/[name].[chunkhash].js'
 	},
 	resolve: { extensions: ['.tsx', '.ts', '.js', '.jsx'] },
 	optimization: {
+		minimize: true,
 		minimizer: [
 			new TerserWebpackPlugin({
-				cache: true,
-				parallel: true,
 				sourceMap: true,
 				terserOptions: {
-					ecma: 5,
-				},
-			}),
+					ecma: 5
+				}
+			})
 		],
 		splitChunks: {
 			cacheGroups: {
@@ -51,39 +50,30 @@ module.exports = {
 					chunks: 'initial',
 					name: 'vendor',
 					priority: 10,
-					enforce: true,
-				},
-			},
-		},
+					enforce: true
+				}
+			}
+		}
 	},
 	devtool: 'source-map',
 	plugins: [
 		new WebpackBar(),
 		new CleanWebpackPlugin(),
-		new HtmlWebpackPlugin({
-			template: path.resolve('assets/template.html'),
+		new HtmlWebpackPlugin(),
+		new workboxPlugin.GenerateSW({
+			clientsClaim: true,
+			skipWaiting: true
 		}),
 		new MiniCssExtractPlugin({
-			filename: path.join('css', '[name].[chunkhash].css'),
+			filename: path.join('css', '[name].[chunkhash].css')
 		}),
 		new webpack.HashedModuleIdsPlugin(),
-		new OfflinePlugin({
-			externals: [
-				'https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap',
-			],
-			excludes: ['**/.*', '**/*.map', '**/*.gz', 'index.html'],
-			AppCache: false,
-			ServiceWorker: {
-				events: true,
-				minify: true,
-			},
-		}),
 		new HardSourceWebpackPlugin({
 			info: {
 				mode: 'none',
-				level: 'error',
-			},
-		}),
+				level: 'error'
+			}
+		})
 	],
 	module: {
 		rules: [
@@ -94,83 +84,60 @@ module.exports = {
 					{
 						loader: 'thread-loader',
 						options: {
-							workers: os.cpus().length - 1,
-						},
+							workers: os.cpus().length - 1
+						}
 					},
 					{
 						loader: 'babel-loader',
 						options: {
 							cacheDirectory: true,
-							babelrc: false,
 							presets: [
-								'@babel/preset-typescript',
+								[
+									'@babel/preset-typescript',
+									{
+										allExtensions: true,
+										isTSX: true
+									}
+								],
 								'@babel/preset-react',
 								[
 									'@babel/preset-env',
 									{
 										targets: 'defaults',
 										useBuiltIns: 'usage',
-										corejs: { version: 3, proposals: true },
-									},
-								],
+										corejs: { version: 3, proposals: true }
+									}
+								]
 							],
 							plugins: [
-								'@babel/plugin-transform-react-constant-elements',
 								'@babel/plugin-transform-runtime',
-								'@babel/plugin-transform-react-inline-elements',
-							],
-						},
-					},
-				],
+								'@babel/plugin-transform-react-constant-elements'
+							]
+						}
+					}
+				]
 			},
 			{
 				test: /\.css$/i,
-				include: path.resolve('node_modules', 'normalize'),
+				include: [
+					path.resolve('node_modules', 'normalize'),
+					path.resolve('src')
+				],
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
 					{
 						loader: 'postcss-loader',
 						options: {
-							ident: 'postcss',
-							plugins: [CSSNano()],
-						},
-					},
-				],
-			},
-			{
-				test: /\.scss$/i,
-				include: path.resolve('src'),
-				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							publicPath: path.join('..', '..', path.sep),
-						},
-					},
-					'css-loader',
-					{
-						loader: 'postcss-loader',
-						options: {
-							ident: 'postcss',
 							plugins: [
-								PostCSSPresetEnv({
-									browsers: 'defaults',
-								}),
-								CSSNano(),
-							],
-							sourceMap: true,
-						},
-					},
-					{
-						loader: 'sass-loader',
-						options: {
-							implementation: DartSass,
-							sourceMap: true,
-						},
-					},
-				],
-			},
-		],
-	},
+								PostCSSImport(),
+								PostCSSPresetEnv(),
+								CSSNano()
+							]
+						}
+					}
+				]
+			}
+		]
+	}
 };
