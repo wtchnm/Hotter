@@ -12,17 +12,11 @@ const TerserWebpackPlugin = require('terser-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const webpack = require('webpack');
-const ThreadLoader = require('thread-loader');
 const workboxPlugin = require('workbox-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-ThreadLoader.warmup(
-	{
-		workers: os.cpus().length - 1
-	},
-	['babel-loader']
-);
-
-module.exports = {
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+module.exports = env => ({
 	mode: 'production',
 	target: 'web',
 	stats: 'errors-only',
@@ -57,7 +51,7 @@ module.exports = {
 	},
 	devtool: 'source-map',
 	plugins: [
-		new WebpackBar(),
+		(!env || env.analyze) && new WebpackBar(),
 		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin(),
 		new workboxPlugin.GenerateSW({
@@ -68,13 +62,16 @@ module.exports = {
 			filename: path.join('css', '[name].[chunkhash].css')
 		}),
 		new webpack.HashedModuleIdsPlugin(),
-		new HardSourceWebpackPlugin({
-			info: {
-				mode: 'none',
-				level: 'error'
-			}
-		})
-	],
+		env &&
+			env.profile !== true &&
+			new HardSourceWebpackPlugin({
+				info: {
+					mode: 'none',
+					level: 'error'
+				}
+			}),
+		env && env.analyze && new BundleAnalyzerPlugin()
+	].filter(Boolean),
 	module: {
 		rules: [
 			{
@@ -105,7 +102,10 @@ module.exports = {
 									{
 										targets: 'defaults',
 										useBuiltIns: 'usage',
-										corejs: { version: 3, proposals: true }
+										corejs: {
+											version: 3,
+											proposals: true
+										}
 									}
 								]
 							],
@@ -140,4 +140,4 @@ module.exports = {
 			}
 		]
 	}
-};
+});
