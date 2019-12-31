@@ -4,15 +4,6 @@ const path = require('path');
 const os = require('os');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ThreadLoader = require('thread-loader');
-
-ThreadLoader.warmup(
-	{
-		workers: os.cpus().length - 1,
-		poolTimeout: Infinity
-	},
-	['babel-loader']
-);
 
 module.exports = {
 	mode: 'development',
