@@ -17,6 +17,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 module.exports = env => ({
 	mode: 'production',
 	target: 'web',
+	devtool: 'source-map',
 	stats: { preset: 'errors-only' },
 	entry: path.resolve('src/index.tsx'),
 	output: {
@@ -47,7 +48,6 @@ module.exports = env => ({
 			}
 		}
 	},
-	devtool: 'source-map',
 	plugins: [
 		(!env || env.analyze) && new WebpackBar(),
 		new CleanWebpackPlugin(),

@@ -9,6 +9,7 @@ module.exports = {
 	mode: 'development',
 	entry: ['react-hot-loader/patch', path.resolve('src/index.tsx')],
 	target: 'web',
+	devtool: 'source-map',
 	plugins: [
 		new HtmlWebpackPlugin(),
 		new webpack.HotModuleReplacementPlugin()
