@@ -46,7 +46,7 @@
 		"prettier": "1.19.1",
 		"style-loader": "1.1.2",
 		"stylelint": "13.0.0",
-		"stylelint-config-prettier": "8.0.0",
+		"stylelint-config-prettier": "8.0.1",
 		"stylelint-config-standard": "19.0.0",
 		"stylelint-prettier": "1.1.2",
 		"superstatic": "6.0.4",
