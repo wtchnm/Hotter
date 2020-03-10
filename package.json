@@ -54,7 +54,7 @@
 		"thread-loader": "2.1.3",
 		"typescript": "3.8.3",
 		"webpack": "5.0.0-beta.14",
-		"webpack-bundle-analyzer": "3.6.0",
+		"webpack-bundle-analyzer": "3.6.1",
 		"webpack-cli": "3.3.11",
 		"webpack-dev-server": "3.10.3",
 		"webpackbar": "4.0.0",
