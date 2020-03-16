@@ -98,10 +98,7 @@ module.exports = env => ({
 									}
 								]
 							],
-							plugins: [
-								'@babel/plugin-transform-runtime',
-								'@babel/plugin-transform-react-constant-elements'
-							]
+							plugins: ['@babel/plugin-transform-runtime']
 						}
 					}
 				]
