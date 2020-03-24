@@ -12,7 +12,7 @@ module.exports = {
 	devtool: 'source-map',
 	plugins: [
 		new HtmlWebpackPlugin(),
-		new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin(),
 	],
 	devServer: {
 		contentBase: path.resolve('assets'),
@@ -21,10 +21,10 @@ module.exports = {
 		historyApiFallback: true,
 		hot: true,
 		open: true,
-		stats: 'errors-only'
+		stats: 'errors-only',
 	},
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js', '.jsx']
+		extensions: ['.tsx', '.ts', '.js', '.jsx'],
 	},
 	module: {
 		rules: [
@@ -36,8 +36,8 @@ module.exports = {
 						loader: 'thread-loader',
 						options: {
 							workers: os.cpus().length - 1,
-							poolTimeout: Infinity
-						}
+							poolTimeout: Infinity,
+						},
 					},
 					{
 						loader: 'babel-loader',
@@ -49,30 +49,30 @@ module.exports = {
 									'@babel/preset-typescript',
 									{
 										allExtensions: true,
-										isTSX: true
-									}
+										isTSX: true,
+									},
 								],
 								[
 									'@babel/preset-react',
 									{
 										useBuiltIns: true,
-										development: true
-									}
-								]
+										development: true,
+									},
+								],
 							],
-							plugins: ['react-hot-loader/babel']
-						}
-					}
-				]
+							plugins: ['react-hot-loader/babel'],
+						},
+					},
+				],
 			},
 			{
 				test: /\.css$/i,
 				include: [
 					path.resolve('node_modules', 'normalize'),
-					path.resolve('src')
+					path.resolve('src'),
 				],
-				use: ['style-loader', 'css-loader']
-			}
-		]
-	}
+				use: ['style-loader', 'css-loader'],
+			},
+		],
+	},
 };

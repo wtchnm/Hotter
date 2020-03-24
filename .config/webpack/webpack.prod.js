@@ -14,7 +14,7 @@ const WebpackBar = require('webpackbar');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-module.exports = env => ({
+module.exports = (env) => ({
 	mode: 'production',
 	target: 'web',
 	devtool: 'source-map',
@@ -22,7 +22,7 @@ module.exports = env => ({
 	entry: path.resolve('src/index.tsx'),
 	output: {
 		filename: 'js/[name].[chunkhash].js',
-		ecmaVersion: 5
+		ecmaVersion: 5,
 	},
 	resolve: { extensions: ['.tsx', '.ts', '.js', '.jsx'] },
 	optimization: {
@@ -31,9 +31,9 @@ module.exports = env => ({
 			new TerserWebpackPlugin({
 				sourceMap: true,
 				terserOptions: {
-					ecma: 5
-				}
-			})
+					ecma: 5,
+				},
+			}),
 		],
 		splitChunks: {
 			cacheGroups: {
@@ -43,10 +43,10 @@ module.exports = env => ({
 					chunks: 'initial',
 					name: 'vendor',
 					priority: 10,
-					enforce: true
-				}
-			}
-		}
+					enforce: true,
+				},
+			},
+		},
 	},
 	plugins: [
 		(!env || env.analyze) && new WebpackBar(),
@@ -54,12 +54,12 @@ module.exports = env => ({
 		new HtmlWebpackPlugin(),
 		new workboxPlugin.GenerateSW({
 			clientsClaim: true,
-			skipWaiting: true
+			skipWaiting: true,
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'css/[name].[chunkhash].css'
+			filename: 'css/[name].[chunkhash].css',
 		}),
-		env && env.analyze && new BundleAnalyzerPlugin()
+		env && env.analyze && new BundleAnalyzerPlugin(),
 	].filter(Boolean),
 	module: {
 		rules: [
@@ -70,8 +70,8 @@ module.exports = env => ({
 					{
 						loader: 'thread-loader',
 						options: {
-							workers: os.cpus().length - 1
-						}
+							workers: os.cpus().length - 1,
+						},
 					},
 					{
 						loader: 'babel-loader',
@@ -82,8 +82,8 @@ module.exports = env => ({
 									'@babel/preset-typescript',
 									{
 										allExtensions: true,
-										isTSX: true
-									}
+										isTSX: true,
+									},
 								],
 								'@babel/preset-react',
 								[
@@ -93,21 +93,21 @@ module.exports = env => ({
 										useBuiltIns: 'usage',
 										corejs: {
 											version: 3,
-											proposals: true
-										}
-									}
-								]
+											proposals: true,
+										},
+									},
+								],
 							],
-							plugins: ['@babel/plugin-transform-runtime']
-						}
-					}
-				]
+							plugins: ['@babel/plugin-transform-runtime'],
+						},
+					},
+				],
 			},
 			{
 				test: /\.css$/i,
 				include: [
 					path.resolve('node_modules', 'normalize'),
-					path.resolve('src')
+					path.resolve('src'),
 				],
 				use: [
 					MiniCssExtractPlugin.loader,
@@ -118,12 +118,12 @@ module.exports = env => ({
 							plugins: [
 								PostCSSImport(),
 								PostCSSPresetEnv(),
-								CSSNano()
-							]
-						}
-					}
-				]
-			}
-		]
-	}
+								CSSNano(),
+							],
+						},
+					},
+				],
+			},
+		],
+	},
 });
