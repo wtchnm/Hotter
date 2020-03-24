@@ -2,5 +2,6 @@
 	"eslint.options": {
 		"configFile": ".config/.eslintrc",
 		"ignorePath": ".config/.eslintignore"
-	}
+	},
+	"files.eol": "\n"
 }
