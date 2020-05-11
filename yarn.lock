@@ -8947,7 +8947,7 @@ terser-webpack-plugin@3.0.0:
     terser "^4.6.13"
     webpack-sources "^1.4.3"
 
-terser-webpack-plugin@^2.3.1:
+terser-webpack-plugin@^2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-2.3.6.tgz#a4014b311a61f87c6a1b217ef4f5a75bd0665a69"
   integrity sha512-I8IDsQwZrqjdmOicNeE8L/MhwatAap3mUrtcAKJuilsemUNcX+Hier/eAzwStVqhlCxq0aG3ni9bK/0BESXkTg==
@@ -9603,10 +9603,10 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0, webpack-sources@^1.4.3:
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@5.0.0-beta.15:
-  version "5.0.0-beta.15"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.0.0-beta.15.tgz#bd44de61ed6018e554afbabdb5b644cae86357cb"
-  integrity sha512-nT+l7LteKTIzB3lmroEGL4qcCBqgHMpa3EJUvhQdfXRWjxCfWnnWdBARhp/To61omZhyNPz2Ye2J1ZEf070kWA==
+webpack@5.0.0-beta.16:
+  version "5.0.0-beta.16"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.0.0-beta.16.tgz#9702c3fa4d1ff8ee1d50d88de34f8c41af64195e"
+  integrity sha512-O6YzI5H7XDPoXFrdC338P0GsSdhmYvz0//HL8LxVFHuRSbtHcV8mfx5U8ouWihFqwyvbfy27Bqoz2KY62kME9Q==
   dependencies:
     "@webassemblyjs/ast" "1.9.0"
     "@webassemblyjs/helper-module-context" "1.9.0"
@@ -9627,7 +9627,7 @@ webpack@5.0.0-beta.15:
     pkg-dir "^4.2.0"
     schema-utils "^2.5.0"
     tapable "2.0.0-beta.9"
-    terser-webpack-plugin "^2.3.1"
+    terser-webpack-plugin "^2.3.6"
     watchpack "2.0.0-beta.13"
     webpack-sources "2.0.0-beta.8"
 
