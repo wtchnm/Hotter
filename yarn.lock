@@ -1168,6 +1168,11 @@
     "@types/webpack-sources" "*"
     source-map "^0.6.0"
 
+"@types/workbox-webpack-plugin@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@types/workbox-webpack-plugin/-/workbox-webpack-plugin-5.1.0.tgz#14312df4eeb4e2195b886c3fa5632d76bf3831c8"
+  integrity sha512-dv3M467adBHEJtRDiT1Wz/qgtalFb+eDik4IeBY5Rjv9iJ+vJZGK7cO7riOwaYgpMlIWnmRhwWs6/SUOzn3AaA==
+
 "@typescript-eslint/eslint-plugin@2.31.0":
   version "2.31.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.31.0.tgz#942c921fec5e200b79593c71fafb1e3f57aa2e36"

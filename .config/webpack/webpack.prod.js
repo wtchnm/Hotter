@@ -54,6 +54,8 @@ module.exports = (env) => ({
 		new workboxPlugin.GenerateSW({
 			clientsClaim: true,
 			skipWaiting: true,
+			cleanupOutdatedCaches: true,
+			navigateFallback: 'index.html',
 		}),
 		new MiniCssExtractPlugin({
 			filename: 'css/[name].[chunkhash].css',
