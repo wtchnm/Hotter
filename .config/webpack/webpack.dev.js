@@ -14,6 +14,7 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin(),
 	],
 	devServer: {
+		compress: true,
 		contentBase: path.resolve('assets'),
 		watchContentBase: true,
 		port: 49049,
