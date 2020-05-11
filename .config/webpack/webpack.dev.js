@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
+// eslint-disable-next-line import/no-extraneous-dependencies
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -25,6 +26,9 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.tsx', '.ts', '.js'],
+		alias: {
+			'react-dom': '@hot-loader/react-dom',
+		},
 	},
 	module: {
 		rules: [
@@ -59,11 +63,12 @@ module.exports = {
 				],
 			},
 			{
+				test: /normalize.css$/i,
+				use: ['style-loader', 'css-loader'],
+			},
+			{
 				test: /\.css$/i,
-				include: [
-					path.resolve('node_modules', 'normalize'),
-					path.resolve('src'),
-				],
+				include: path.resolve('src'),
 				use: ['style-loader', 'css-loader'],
 			},
 		],

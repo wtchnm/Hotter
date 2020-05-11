@@ -31,5 +31,12 @@
 				"ts": "never"
 			}
 		]
+	},
+	"settings": {
+		"import/resolver": {
+			"webpack": {
+				"config": ".config/webpack/webpack.dev.js"
+			}
+		}
 	}
 }

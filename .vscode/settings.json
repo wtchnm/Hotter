@@ -1,8 +1,13 @@
 {
 	"eslint.options": {
-		"configFile": ".config/.eslintrc",
+		"configFile": ".config/.eslintrc.json",
 		"ignorePath": ".config/.eslintignore"
 	},
 	"files.eol": "\n",
-	"git.enableCommitSigning": true
+	"git.enableCommitSigning": true,
+	"eslint.nodePath": ".vscode/pnpify",
+	"prettier.prettierPath": ".vscode/pnpify/prettier/index.js",
+	"typescript.tsdk": ".vscode/pnpify/typescript/lib",
+	"typescript.enablePromptUseWorkspaceTsdk": true,
+	"stylelint.stylelintPath": ".vscode/pnpify/stylelint/lib/index.js"
 }

@@ -3,7 +3,8 @@
 		"target": "ESNext",
 		"esModuleInterop": true,
 		"strict": true,
-		"jsx": "preserve"
+		"jsx": "preserve",
+		"moduleResolution": "Node"
 	},
 	"include": ["src"]
 }
