@@ -68,7 +68,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "lint-staged --config .config/.lintstagedrc"
+			"pre-commit": "lint-staged --config .config/.lintstagedrc.json"
 		}
 	},
 	"config": {
