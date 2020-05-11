@@ -24,15 +24,13 @@ module.exports = (env) => ({
 	},
 	resolve: { extensions: ['.tsx', '.ts', '.js'] },
 	optimization: {
+		moduleIds: 'deterministic',
 		splitChunks: {
 			cacheGroups: {
-				runtimeChunk: 'single',
 				vendor: {
-					test: /node_modules/,
-					chunks: 'initial',
-					name: 'vendor',
-					priority: 10,
-					enforce: true,
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendors',
+					chunks: 'all',
 				},
 			},
 		},
@@ -51,7 +49,11 @@ module.exports = (env) => ({
 			filename: 'css/[name].[contenthash].css',
 			chunkFilename: 'css/[name].[id].[contenthash].css',
 		}),
-		env && env.analyze && new BundleAnalyzerPlugin(),
+		env &&
+			env.analyze &&
+			new BundleAnalyzerPlugin({
+				analyzerHost: 'localhost',
+			}),
 	].filter(Boolean),
 	module: {
 		rules: [
@@ -71,12 +73,18 @@ module.exports = (env) => ({
 										isTSX: true,
 									},
 								],
-								'@babel/preset-react',
+								[
+									'@babel/preset-react',
+									{
+										useBuiltIns: true,
+									},
+								],
 								[
 									'@babel/preset-env',
 									{
-										targets: 'defaults',
 										useBuiltIns: 'usage',
+										bugfixes: true,
+										loose: true,
 										corejs: {
 											version: 3,
 											proposals: true,
@@ -84,7 +92,12 @@ module.exports = (env) => ({
 									},
 								],
 							],
-							plugins: ['@babel/plugin-transform-runtime'],
+							plugins: [
+								[
+									'@babel/plugin-transform-runtime',
+									{ corejs: 3 },
+								],
+							],
 						},
 					},
 				],
@@ -96,12 +109,7 @@ module.exports = (env) => ({
 					path.resolve('src'),
 				],
 				use: [
-					{
-						loader: MiniCssExtractPlugin.loader,
-						options: {
-							esModule: true,
-						},
-					},
+					MiniCssExtractPlugin.loader,
 					'css-loader',
 					{
 						loader: 'postcss-loader',
