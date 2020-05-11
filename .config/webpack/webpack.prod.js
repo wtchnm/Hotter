@@ -7,7 +7,6 @@ const PostCSSPresetEnv = require('postcss-preset-env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserWebpackPlugin = require('terser-webpack-plugin');
 const workboxPlugin = require('workbox-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -21,20 +20,10 @@ module.exports = (env) => ({
 	entry: path.resolve('src/index.tsx'),
 	output: {
 		filename: 'js/[name].[chunkhash].js',
-		ecmaVersion: 5,
 		path: path.resolve('dist'),
 	},
 	resolve: { extensions: ['.tsx', '.ts', '.js'] },
 	optimization: {
-		minimize: true,
-		minimizer: [
-			new TerserWebpackPlugin({
-				sourceMap: true,
-				terserOptions: {
-					ecma: 5,
-				},
-			}),
-		],
 		splitChunks: {
 			cacheGroups: {
 				runtimeChunk: 'single',
