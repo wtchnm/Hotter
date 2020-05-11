@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
 const path = require('path');
-const os = require('os');
 const CSSNano = require('cssnano');
 const PostCSSImport = require('postcss-import');
 const PostCSSPresetEnv = require('postcss-preset-env');
@@ -24,7 +23,7 @@ module.exports = (env) => ({
 		filename: 'js/[name].[chunkhash].js',
 		ecmaVersion: 5,
 	},
-	resolve: { extensions: ['.tsx', '.ts', '.js', '.jsx'] },
+	resolve: { extensions: ['.tsx', '.ts', '.js'] },
 	optimization: {
 		minimize: true,
 		minimizer: [
@@ -67,12 +66,6 @@ module.exports = (env) => ({
 				test: /\.tsx?$/i,
 				include: path.resolve('src'),
 				use: [
-					{
-						loader: 'thread-loader',
-						options: {
-							workers: os.cpus().length - 1,
-						},
-					},
 					{
 						loader: 'babel-loader',
 						options: {

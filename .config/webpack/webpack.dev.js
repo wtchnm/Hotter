@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
 const path = require('path');
-const os = require('os');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -24,7 +23,7 @@ module.exports = {
 		stats: 'errors-only',
 	},
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js', '.jsx'],
+		extensions: ['.tsx', '.ts', '.js'],
 	},
 	module: {
 		rules: [
@@ -32,13 +31,6 @@ module.exports = {
 				test: /\.tsx?$/i,
 				include: path.resolve('src'),
 				use: [
-					{
-						loader: 'thread-loader',
-						options: {
-							workers: os.cpus().length - 1,
-							poolTimeout: Infinity,
-						},
-					},
 					{
 						loader: 'babel-loader',
 						options: {
