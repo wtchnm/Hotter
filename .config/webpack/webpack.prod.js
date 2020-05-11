@@ -22,6 +22,7 @@ module.exports = (env) => ({
 	output: {
 		filename: 'js/[name].[chunkhash].js',
 		ecmaVersion: 5,
+		path: path.resolve('dist'),
 	},
 	resolve: { extensions: ['.tsx', '.ts', '.js'] },
 	optimization: {
@@ -58,7 +59,8 @@ module.exports = (env) => ({
 			navigateFallback: 'index.html',
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'css/[name].[chunkhash].css',
+			filename: 'css/[name].[contenthash].css',
+			chunkFilename: 'css/[name].[id].[contenthash].css',
 		}),
 		env && env.analyze && new BundleAnalyzerPlugin(),
 	].filter(Boolean),
@@ -105,7 +107,12 @@ module.exports = (env) => ({
 					path.resolve('src'),
 				],
 				use: [
-					MiniCssExtractPlugin.loader,
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							esModule: true,
+						},
+					},
 					'css-loader',
 					{
 						loader: 'postcss-loader',
