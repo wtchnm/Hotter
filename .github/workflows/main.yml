@@ -28,7 +28,7 @@ jobs:
 
             - name: Install dependecies and build
               run: |
-                  yarn install --frozen-lockfile
+                  yarn install --immutable
                   yarn build
               env:
                   CI: true
