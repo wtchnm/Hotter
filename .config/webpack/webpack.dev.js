@@ -53,7 +53,17 @@ module.exports = {
 									},
 								],
 							],
-							plugins: ['react-hot-loader/babel'],
+							plugins: [
+								'react-hot-loader/babel',
+								[
+									'@babel/plugin-proposal-class-properties',
+									{ loose: true },
+								],
+								[
+									'@babel/plugin-proposal-optional-chaining',
+									{ loose: true },
+								],
+							],
 						},
 					},
 				],
