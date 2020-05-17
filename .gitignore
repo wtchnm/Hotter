@@ -1,8 +1,7 @@
-dist
 stats.json
 
-# Created by https://www.gitignore.io/api/node,sass,linux,macos,windows
-# Edit at https://www.gitignore.io/?templates=node,sass,linux,macos,windows
+# Created by https://www.gitignore.io/api/node,linux,macos,windows
+# Edit at https://www.gitignore.io/?templates=node,linux,macos,windows
 
 ### Linux ###
 *~
@@ -125,8 +124,17 @@ typings/
 # nuxt.js build output
 .nuxt
 
-# react / gatsby
-public/
+# rollup.js default build output
+dist/
+
+# Uncomment the public line if your project uses Gatsby
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# https://create-react-app.dev/docs/using-the-public-folder/#docsNav
+# public
+
+# Storybook build outputs
+.out
+.storybook-out
 
 # vuepress build output
 .vuepress/dist
@@ -140,11 +148,9 @@ public/
 # DynamoDB Local files
 .dynamodb/
 
-### Sass ###
-.sass-cache/
-*.css.map
-*.sass.map
-*.scss.map
+# Temporary folders
+tmp/
+temp/
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -172,4 +178,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/node,sass,linux,macos,windows
+# End of https://www.gitignore.io/api/node,linux,macos,windows
