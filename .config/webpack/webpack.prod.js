@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
-// eslint-disable-next-line import/no-extraneous-dependencies
 const path = require('path');
 const CSSNano = require('cssnano');
 const PostCSSImport = require('postcss-import');
@@ -104,25 +103,11 @@ module.exports = (env) => ({
 				],
 			},
 			{
-				test: /normalize.css$/i,
-				use: [
-					MiniCssExtractPlugin.loader,
-					'css-loader',
-					{
-						loader: 'postcss-loader',
-						options: {
-							plugins: [
-								PostCSSImport(),
-								PostCSSPresetEnv(),
-								CSSNano(),
-							],
-						},
-					},
-				],
-			},
-			{
 				test: /\.css$/i,
-				include: path.resolve('src'),
+				include: [
+					path.resolve('node_modules', 'normalize'),
+					path.resolve('src'),
+				],
 				use: [
 					MiniCssExtractPlugin.loader,
 					'css-loader',
