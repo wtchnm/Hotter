@@ -23,6 +23,9 @@ module.exports = (env) => ({
 		path: path.resolve('dist'),
 	},
 	resolve: { extensions: ['.tsx', '.ts', '.js'] },
+	cache: {
+		type: 'filesystem',
+	},
 	optimization: {
 		moduleIds: 'deterministic',
 		splitChunks: {
