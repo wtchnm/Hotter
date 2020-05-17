@@ -3,6 +3,7 @@
 		"configFile": ".config/.eslintrc",
 		"ignorePath": ".config/.eslintignore"
 	},
+	"css.validate": false,
 	"files.eol": "\n",
 	"git.enableCommitSigning": true
 }

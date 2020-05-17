@@ -3,12 +3,8 @@
 		"dbaeumer.vscode-eslint",
 		"esbenp.prettier-vscode",
 		"stylelint.vscode-stylelint",
-		"visualstudioexptteam.vscodeintellicode",
-		"msjsdiag.debugger-for-chrome"
-	],
-	"unwantedRecommendations": [
-		"dbaeumer.jshint",
-		"hookyqr.beautify",
-		"ms-vscode.vscode-typescript-tslint-plugin"
+		"msjsdiag.debugger-for-chrome",
+		"bradlc.vscode-tailwindcss",
+		"VisualStudioExptTeam.vscodeintellicode"
 	]
 }

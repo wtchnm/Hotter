@@ -3,6 +3,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TailwindPostCSSPlugin = require('tailwindcss');
 
 module.exports = {
 	mode: 'development',
@@ -70,11 +71,22 @@ module.exports = {
 			},
 			{
 				test: /\.css$/i,
-				include: [
-					path.resolve('node_modules', 'normalize'),
-					path.resolve('src'),
+				include: path.resolve('src'),
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+						},
+					},
+					{
+						loader: 'postcss-loader',
+						options: {
+							plugins: [TailwindPostCSSPlugin],
+						},
+					},
 				],
-				use: ['style-loader', 'css-loader'],
 			},
 		],
 	},

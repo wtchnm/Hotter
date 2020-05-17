@@ -2,7 +2,7 @@
 // @ts-check
 const path = require('path');
 const CSSNano = require('cssnano');
-const PostCSSImport = require('postcss-import');
+const TailwindPostCSSPlugin = require('tailwindcss');
 const PostCSSPresetEnv = require('postcss-preset-env');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -115,18 +115,20 @@ module.exports = (env) => ({
 			},
 			{
 				test: /\.css$/i,
-				include: [
-					path.resolve('node_modules', 'normalize'),
-					path.resolve('src'),
-				],
+				include: path.resolve('src'),
 				use: [
 					MiniCssExtractPlugin.loader,
-					'css-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							importLoaders: 1,
+						},
+					},
 					{
 						loader: 'postcss-loader',
 						options: {
 							plugins: [
-								PostCSSImport(),
+								TailwindPostCSSPlugin(),
 								PostCSSPresetEnv(),
 								CSSNano(),
 							],
