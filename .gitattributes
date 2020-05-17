@@ -1,284 +1,169 @@
-# Common settings that generally should always be used with your language specific settings
+# See https://github.com/alexkaratarakis/gitattributes/blob/master/LICENSE.md
 
-# Auto detect text files and perform LF normalization
-# https://www.davidlaing.com/2012/09/19/customise-your-gitattributes-to-become-a-git-ninja/
-*          text=auto
-
-#
-# The above will handle all files NOT found below
-#
-
-# Documents
-*.bibtex   text diff=bibtex
-*.doc	        diff=astextplain
-*.DOC	        diff=astextplain
-*.docx          diff=astextplain
-*.DOCX          diff=astextplain
-*.dot           diff=astextplain
-*.DOT           diff=astextplain
-*.pdf           diff=astextplain
-*.PDF           diff=astextplain
-*.rtf           diff=astextplain
-*.RTF	        diff=astextplain
-*.md       text
-*.tex      text diff=tex
-*.adoc     text
-*.textile  text
+* text=auto
+*.*ignore text
+*.*rc text
+*.3gp binary
+*.3gpp binary
+*.7z binary
+*.adoc text
+*.ai binary
+*.as binary
+*.asf binary
+*.asx binary
+*.bash text eol=lf
+*.bat text eol=crlf
+*.bibtex text diff=bibtex
+*.bmp binary
+*.cmd text eol=crlf
+*.cnf text
+*.coffee text
+*.conf text
+*.config text
+*.css text
+*.csv text
+*.DOC diff=astextplain
+*.DOCX diff=astextplain
+*.DOT diff=astextplain
+*.dot text
+*.ejs text
+*.eot binary
+*.eps binary
+*.exe binary
+*.fish text eol=lf
+*.fla binary
+*.flv binary
+*.gif binary
+*.gifv binary
+*.gz binary
+*.haml text
+*.handlebars text
+*.hbs text
+*.hbt text
+*.htm text diff=html
+*.html text diff=html
+*.ico binary
+*.inc text
+*.ini text
+*.ipynb text
+*.jade text
+*.jar binary
+*.jng binary
+*.jp2 binary
+*.jpeg binary
+*.jpg binary
+*.jpx binary
+*.js text
+*.json text
+*.jsx text
+*.jxr binary
+*.kar binary
+*.latte text
+*.less text
+*.lock text -diff
+*.ls text
+*.m4a binary
+*.m4v binary
+*.map text -diff
+*.markdown text
+*.md text
+*.mdown text
+*.mdtext text
+*.mdtxt text
+*.mdwn text
+*.mid binary
+*.midi binary
+*.mkd text
+*.mkdn text
+*.mng binary
+*.mov binary
+*.mp3 binary
+*.mp4 binary
+*.mpeg binary
+*.mpg binary
 *.mustache text
-*.csv      text
-*.tab      text
-*.tsv      text
-*.txt      text
-*.sql      text
-
-# Graphics
-*.png      binary
-*.jpg      binary
-*.jpeg     binary
-*.gif      binary
-*.tif      binary
-*.tiff     binary
-*.ico      binary
-# SVG treated as an asset (binary) by default.
-*.svg      text
-# If you want to treat it as binary,
-# use the following line instead.
-# *.svg    binary
-*.eps      binary
-
-# Scripts
-*.bash     text eol=lf
-*.fish     text eol=lf
-*.sh       text eol=lf
-# These are explicitly windows files and should use crlf
-*.bat      text eol=crlf
-*.cmd      text eol=crlf
-*.ps1      text eol=crlf
-
-# Serialisation
-*.json     text
-*.toml     text
-*.xml      text
-*.yaml     text
-*.yml      text
-
-# Archives
-*.7z       binary
-*.gz       binary
-*.tar      binary
-*.zip      binary
-
-#
-# Exclude files from exporting
-#
-
+*.njk text
+*.od text
+*.ogg binary
+*.ogv binary
+*.onlydata text
+*.otf binary
+*.patch -text
+*.pdf binary
+*.PDF diff=astextplain
+*.php text diff=php
+*.phtml text
+*.pl text
+*.png binary
+*.ps1 text eol=crlf
+*.psb binary
+*.psd binary
+*.py text diff=python
+*.pyc binary
+*.ra binary
+*.rar binary
+*.rb text diff=ruby
+*.RTF diff=astextplain
+*.sass text
+*.scm text
+*.scss text diff=css
+*.sh text eol=lf
+*.sql text
+*.styl text
+*.svg text
+*.svgz binary
+*.swc binary
+*.swf binary
+*.tab text
+*.tag text
+*.tar binary
+*.tex text diff=tex
+*.textile text
+*.tgz binary
+*.tif binary
+*.tiff binary
+*.tmpl text
+*.toml text
+*.tpl text
+*.ts text
+*.tsv text
+*.tsx text
+*.ttf binary
+*.twig text
+*.txt text
+*.vue text
+*.wbmp binary
+*.webm binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+*.xhtml text diff=html
+*.xml text
+*.yaml text
+*.yml text
+*.zip binary
+*COPYRIGHT* text
+*README* text
+.editorconfig text
+.env text
 .gitattributes export-ignore
-.gitignore     export-ignore
-
-## GITATTRIBUTES FOR WEB PROJECTS
-#
-# These settings are for any web project.
-#
-# Details per file setting:
-#   text    These files should be normalized (i.e. convert CRLF to LF).
-#   binary  These files are binary and should be left untouched.
-#
-# Note that binary is a macro for -text -diff.
-######################################################################
-
-# Auto detect
-##   Handle line endings automatically for files detected as
-##   text and leave all files detected as binary untouched.
-##   This will handle all files NOT defined below.
-*                 text=auto
-
-# Source code
-*.bash            text eol=lf
-*.bat             text eol=crlf
-*.cmd             text eol=crlf
-*.coffee          text
-*.css             text
-*.htm             text diff=html
-*.html            text diff=html
-*.inc             text
-*.ini             text
-*.js              text
-*.json            text
-*.jsx             text
-*.less            text
-*.ls              text
-*.map             text -diff
-*.od              text
-*.onlydata        text
-*.php             text diff=php
-*.pl              text
-*.ps1             text eol=crlf
-*.py              text diff=python
-*.rb              text diff=ruby
-*.sass            text
-*.scm             text
-*.scss            text diff=css
-*.sh              text eol=lf
-*.sql             text
-*.styl            text
-*.tag             text
-*.ts              text
-*.tsx             text
-*.xml             text
-*.xhtml           text diff=html
-
-# Docker
-*.dockerignore    text
-Dockerfile        text
-
-# Documentation
-*.ipynb           text
-*.markdown        text
-*.md              text
-*.mdwn            text
-*.mdown           text
-*.mkd             text
-*.mkdn            text
-*.mdtxt           text
-*.mdtext          text
-*.txt             text
-AUTHORS           text
-CHANGELOG         text
-CHANGES           text
-CONTRIBUTING      text
-COPYING           text
-copyright         text
-*COPYRIGHT*       text
-INSTALL           text
-license           text
-LICENSE           text
-NEWS              text
-readme            text
-*README*          text
-TODO              text
-
-# Templates
-*.dot             text
-*.ejs             text
-*.haml            text
-*.handlebars      text
-*.hbs             text
-*.hbt             text
-*.jade            text
-*.latte           text
-*.mustache        text
-*.njk             text
-*.phtml           text
-*.tmpl            text
-*.tpl             text
-*.twig            text
-*.vue             text
-
-# Linters
-.csslintrc        text
-.eslintrc         text
-.htmlhintrc       text
-.jscsrc           text
-.jshintrc         text
-.jshintignore     text
-.stylelintrc      text
-
-# Configs
-*.bowerrc         text
-*.cnf             text
-*.conf            text
-*.config          text
-.babelrc          text
-.browserslistrc   text
-.editorconfig     text
-.env              text
-.gitattributes    text
-.gitconfig        text
-.htaccess         text
-*.lock            text -diff
+.gitattributes text
+.gitconfig text
+.gitignore export-ignore
+.htaccess text
+AUTHORS text
+browserslist text
+CHANGELOG text
+CHANGES text
+CONTRIBUTING text
+COPYING text
+copyright text
+Dockerfile text
+INSTALL text
+LICENSE text
+makefile text
+NEWS text
 package-lock.json text -diff
-*.npmignore       text
-*.yaml            text
-*.yml             text
-browserslist      text
-Makefile          text
-makefile          text
-
-# Heroku
-Procfile          text
-.slugignore       text
-
-# Graphics
-*.ai              binary
-*.bmp             binary
-*.eps             binary
-*.gif             binary
-*.gifv            binary
-*.ico             binary
-*.jng             binary
-*.jp2             binary
-*.jpg             binary
-*.jpeg            binary
-*.jpx             binary
-*.jxr             binary
-*.pdf             binary
-*.png             binary
-*.psb             binary
-*.psd             binary
-# SVG treated as an asset (binary) by default.
-*.svg             text
-# If you want to treat it as binary,
-# use the following line instead.
-# *.svg           binary
-*.svgz            binary
-*.tif             binary
-*.tiff            binary
-*.wbmp            binary
-*.webp            binary
-
-# Audio
-*.kar             binary
-*.m4a             binary
-*.mid             binary
-*.midi            binary
-*.mp3             binary
-*.ogg             binary
-*.ra              binary
-
-# Video
-*.3gpp            binary
-*.3gp             binary
-*.as              binary
-*.asf             binary
-*.asx             binary
-*.fla             binary
-*.flv             binary
-*.m4v             binary
-*.mng             binary
-*.mov             binary
-*.mp4             binary
-*.mpeg            binary
-*.mpg             binary
-*.ogv             binary
-*.swc             binary
-*.swf             binary
-*.webm            binary
-
-# Archives
-*.7z              binary
-*.gz              binary
-*.jar             binary
-*.rar             binary
-*.tar             binary
-*.zip             binary
-
-# Fonts
-*.ttf             binary
-*.eot             binary
-*.otf             binary
-*.woff            binary
-*.woff2           binary
-
-# Executables
-*.exe             binary
-*.pyc             binary
+Procfile text
+readme text
+TODO text
