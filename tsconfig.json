@@ -4,7 +4,11 @@
 		"moduleResolution": "Node",
 		"esModuleInterop": true,
 		"strict": true,
-		"jsx": "preserve"
+		"jsx": "preserve",
+		"allowJs": true,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"resolveJsonModule": true
 	},
-	"include": ["src"]
+	"include": ["src", "tailwind.config.js", ".config/webpack"]
 }

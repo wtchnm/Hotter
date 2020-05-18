@@ -1,9 +1,10 @@
 {
 	"eslint.options": {
-		"configFile": ".config/.eslintrc",
+		"configFile": ".config/.eslintrc.json",
 		"ignorePath": ".config/.eslintignore"
 	},
 	"css.validate": false,
 	"files.eol": "\n",
-	"git.enableCommitSigning": true
+	"git.enableCommitSigning": true,
+	"typescript.tsdk": "node_modules\\typescript\\lib"
 }

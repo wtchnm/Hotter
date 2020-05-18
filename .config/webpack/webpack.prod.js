@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-// @ts-check
 const path = require('path');
 const CSSNano = require('cssnano');
 const TailwindPostCSSPlugin = require('tailwindcss');
@@ -128,9 +127,9 @@ module.exports = (env) => ({
 						loader: 'postcss-loader',
 						options: {
 							plugins: [
-								TailwindPostCSSPlugin(),
-								PostCSSPresetEnv(),
-								CSSNano(),
+								new TailwindPostCSSPlugin(),
+								new PostCSSPresetEnv(),
+								new CSSNano(),
 							],
 						},
 					},
