@@ -8,7 +8,7 @@ const App: React.FC = () => {
 	);
 
 	return (
-		<p className="text-center text-6xl text-orange-500">
+		<p className="text-center text-6xl">
 			It&apos;s hot here! {temperature}° fahrenheit.
 		</p>
 	);

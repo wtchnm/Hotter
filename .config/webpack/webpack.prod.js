@@ -9,16 +9,17 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const workboxPlugin = require('workbox-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 module.exports = (env) => ({
 	mode: 'production',
 	target: 'web',
 	devtool: 'source-map',
-	stats: { preset: 'errors-only' },
+	stats: { preset: 'errors-warnings' },
 	entry: path.resolve('src/index.tsx'),
 	output: {
-		filename: 'js/[name].[chunkhash].js',
+		filename: '[name].[chunkhash].js',
 		path: path.resolve('dist'),
 	},
 	resolve: { extensions: ['.tsx', '.ts', '.js'] },
@@ -40,7 +41,12 @@ module.exports = (env) => ({
 	plugins: [
 		(!env || env.analyze) && new WebpackBar(),
 		new CleanWebpackPlugin(),
-		new HtmlWebpackPlugin(),
+		new CopyWebpackPlugin({
+			patterns: [{ from: 'public' }],
+		}),
+		new HtmlWebpackPlugin({
+			template: path.resolve('public/index.html'),
+		}),
 		new workboxPlugin.GenerateSW({
 			clientsClaim: true,
 			skipWaiting: true,
@@ -48,8 +54,8 @@ module.exports = (env) => ({
 			navigateFallback: 'index.html',
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'css/[name].[contenthash].css',
-			chunkFilename: 'css/[name].[id].[contenthash].css',
+			filename: '[name].[contenthash].css',
+			chunkFilename: '[name].[id].[contenthash].css',
 		}),
 		env &&
 			env.analyze &&

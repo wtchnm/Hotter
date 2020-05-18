@@ -10,12 +10,14 @@ module.exports = {
 	target: 'web',
 	devtool: 'cheap-module-source-map',
 	plugins: [
-		new HtmlWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			template: path.resolve('public/index.html'),
+		}),
 		new webpack.HotModuleReplacementPlugin(),
 	],
 	devServer: {
 		compress: true,
-		contentBase: path.resolve('assets'),
+		contentBase: path.resolve('public'),
 		watchContentBase: true,
 		port: 49049,
 		historyApiFallback: true,
