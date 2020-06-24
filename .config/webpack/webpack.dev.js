@@ -3,10 +3,11 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TailwindPostCSSPlugin = require('tailwindcss');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
 	mode: 'development',
-	entry: ['react-hot-loader/patch', path.resolve('src/index.tsx')],
+	entry: path.resolve('src/index.tsx'),
 	target: 'web',
 	devtool: 'cheap-module-source-map',
 	plugins: [
@@ -14,6 +15,7 @@ module.exports = {
 			template: path.resolve('public/index.html'),
 		}),
 		new webpack.HotModuleReplacementPlugin(),
+		new ReactRefreshWebpackPlugin(),
 	],
 	devServer: {
 		compress: true,
@@ -56,7 +58,7 @@ module.exports = {
 								],
 							],
 							plugins: [
-								'react-hot-loader/babel',
+								'react-refresh/babel',
 								[
 									'@babel/plugin-proposal-class-properties',
 									{ loose: true },
