@@ -2,7 +2,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TailwindPostCSSPlugin = require('tailwindcss');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
@@ -86,7 +85,9 @@ module.exports = {
 					{
 						loader: 'postcss-loader',
 						options: {
-							plugins: [TailwindPostCSSPlugin],
+							config: {
+								path: path.resolve('.config'),
+							},
 						},
 					},
 				],
