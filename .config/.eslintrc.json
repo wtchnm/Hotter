@@ -25,6 +25,8 @@
 		"browser": true
 	},
 	"rules": {
+		"no-void": ["error", { "allowAsStatement": true }],
+
 		"react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
 		"react/jsx-one-expression-per-line": 0,
 		"react/prop-types": 0,
