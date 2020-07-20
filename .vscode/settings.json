@@ -4,6 +4,7 @@
 		"ignorePath": ".config/.eslintignore"
 	},
 	"css.validate": false,
+	"stylelint.validate": ["css"],
 	"files.eol": "\n",
 	"git.enableCommitSigning": true,
 	"typescript.tsdk": "node_modules\\typescript\\lib"
