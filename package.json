@@ -69,7 +69,7 @@
 		"core-js": "3.6.5",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
-		"tailwindcss": "1.5.2"
+		"tailwindcss": "1.6.1"
 	},
 	"husky": {
 		"hooks": {
