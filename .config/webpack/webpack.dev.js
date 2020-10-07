@@ -81,9 +81,9 @@ module.exports = {
 					{
 						loader: 'postcss-loader',
 						options: {
-							config: {
-								path: path.resolve('.config'),
-							},
+							postcssOptions: {
+								config: path.resolve('.config')
+							}
 						},
 					},
 				],
