@@ -70,9 +70,19 @@
     "react-dom": "16.13.1",
     "tailwindcss": "1.8.13"
   },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --ext .ts,.tsx --fix",
+      "prettier --write"
+    ],
+    "*.{html,css}": [
+      "stylelint --fix",
+      "prettier --write"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged --config .config/.lintstagedrc.json"
+      "pre-commit": "lint-staged"
     }
   },
   "config": {
