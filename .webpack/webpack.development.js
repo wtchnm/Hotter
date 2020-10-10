@@ -5,9 +5,9 @@ const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin"
 
 module.exports = {
   mode: "development",
-  entry: path.resolve("src/index.tsx"),
   target: "web",
   devtool: "cheap-module-source-map",
+  entry: "./src/index.tsx",
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve("public/index.html"),

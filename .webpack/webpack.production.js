@@ -12,28 +12,12 @@ module.exports = (environment) => ({
   mode: "production",
   target: "web",
   devtool: "source-map",
-  stats: { preset: "errors-warnings" },
-  entry: path.resolve("src/index.tsx"),
+  entry: "./src/index.tsx",
   output: {
-    filename: "[name].[chunkhash].js",
+    filename: "[name].[contenthash].js",
     path: path.resolve("dist"),
   },
   resolve: { extensions: [".tsx", ".ts", ".js"] },
-  cache: {
-    type: "filesystem",
-  },
-  optimization: {
-    moduleIds: "deterministic",
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[/\\]node_modules[/\\]/,
-          name: "vendors",
-          chunks: "all",
-        },
-      },
-    },
-  },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
