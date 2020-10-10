@@ -11,10 +11,5 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": [
-    "src",
-    "tailwind.config.js",
-    ".config/webpack",
-    ".config/.postcssrc.js"
-  ]
+  "include": [".webpack", "src", "tailwind.config.js"]
 }
