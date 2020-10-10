@@ -78,7 +78,7 @@ module.exports = {
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                config: path.resolve(".config"),
+                plugins: ["tailwindcss"],
               },
             },
           },

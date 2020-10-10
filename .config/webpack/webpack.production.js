@@ -118,7 +118,7 @@ module.exports = (environment) => ({
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                config: path.resolve(".config"),
+                plugins: ["tailwindcss", "autoprefixer", "cssnano"],
               },
             },
           },
