@@ -23,7 +23,6 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     open: true,
-    stats: "errors-only",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
