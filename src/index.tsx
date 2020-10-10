@@ -9,4 +9,4 @@ if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
 	});
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.querySelector('#root'));

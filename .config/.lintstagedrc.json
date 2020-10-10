@@ -1,10 +1,4 @@
 {
-	"*.{ts,tsx}": [
-		"eslint --config .config/.eslintrc.json --ignore-path .config/.eslintignore --fix",
-		"prettier --write"
-	],
-	"*.{html,css}": [
-		"stylelint --config .config/.stylelintrc.json --fix",
-		"prettier --write"
-	]
+	"*.{ts,tsx}": ["eslint --ext .ts,.tsx --fix", "prettier --write"],
+	"*.{html,css}": ["stylelint --fix", "prettier --write"]
 }

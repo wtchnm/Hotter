@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -8,8 +7,8 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 /**
- * @param {{ analyze: boolean }} env */
-module.exports = (env) => ({
+ * @param {{ analyze: boolean }} environment */
+module.exports = (environment) => ({
 	mode: 'production',
 	target: 'web',
 	devtool: 'source-map',
@@ -28,7 +27,7 @@ module.exports = (env) => ({
 		splitChunks: {
 			cacheGroups: {
 				vendor: {
-					test: /[\\/]node_modules[\\/]/,
+					test: /[/\\]node_modules[/\\]/,
 					name: 'vendors',
 					chunks: 'all',
 				},
@@ -53,8 +52,8 @@ module.exports = (env) => ({
 			filename: '[name].[contenthash].css',
 			chunkFilename: '[name].[id].[contenthash].css',
 		}),
-		env &&
-			env.analyze &&
+		environment &&
+			environment.analyze &&
 			new BundleAnalyzerPlugin({
 				analyzerHost: 'localhost',
 			}),
@@ -125,8 +124,8 @@ module.exports = (env) => ({
 						loader: 'postcss-loader',
 						options: {
 							postcssOptions: {
-								config: path.resolve('.config')
-							}
+								config: path.resolve('.config'),
+							},
 						},
 					},
 				],
