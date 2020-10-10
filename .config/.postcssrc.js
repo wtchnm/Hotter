@@ -1,12 +1,7 @@
-// @ts-check
-
-/**
- * @param {{ env: string; }} ctx
- */
-module.exports = (ctx) => ({
+module.exports = (context) => ({
 	plugins: {
 		tailwindcss: {},
-		'postcss-preset-env': ctx.env === 'production' ? {} : false,
-		cssnano: ctx.env === 'production' ? {} : false,
+		autoprefixer: context.env === 'production' ? {} : false,
+		cssnano: context.env === 'production' ? {} : false,
 	},
 });
