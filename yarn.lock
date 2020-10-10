@@ -1580,6 +1580,11 @@ acorn@^7.0.0, acorn@^7.1.0, acorn@^7.1.1, acorn@^7.4.0:
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-7.4.1.tgz#feaed255973d2e77555b83dbc08851a6c63520fa"
   integrity sha512-nQyp0o1/mNdbTO1PO6kHkwSrmgZ0MT/jCCpNiwbUjGoRN4dlBhqJtoQuCnEOKzgTVwg0ZWiCoQy6SxMebQVh8A==
 
+acorn@^8.0.3:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-8.0.4.tgz#7a3ae4191466a6984eee0fe3407a4f3aa9db8354"
+  integrity sha512-XNP0PqF1XD19ZlLKvB7cMmnZswW4C/03pRHgirB30uSJTaS3A3V1/P4sS3HPvFmjoriPCJQs+JDSbm4bL1TxGQ==
+
 aggregate-error@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-3.1.0.tgz#92670ff50f5359bdb7a3e0d40d0ec30c5737687a"
@@ -7583,7 +7588,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.6.5, schema-utils@^2.7.0, schema-utils@^2.7.1:
+schema-utils@^2.6.5, schema-utils@^2.7.1:
   version "2.7.1"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.7.1.tgz#1ca4f32d1b24c590c203b8e7a50bf0ea4cd394d7"
   integrity sha512-SHiNtMOUGWBQJwzISiVYKu82GiV4QYGePp3odlY1tuKO7gPtphAT5R/py0fA6xtbgLL/RvtJZnU9b8s0F1q0Xg==
@@ -9056,10 +9061,10 @@ webpack-sources@^2.0.1:
     source-list-map "^2.0.1"
     source-map "^0.6.1"
 
-webpack@5.0.0-rc.3:
-  version "5.0.0-rc.3"
-  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.0.0-rc.3.tgz#534afa7ef8b54c62ea393492dfa2e05b4491d773"
-  integrity sha512-z07btJiDKZjtbHz1d/jbWBw+cV+ZEAIDZx/rHGJIj2I1jC/zWg0TxH0wg33v9GSVGTkVo48KcQ4AM5QnpN0yYQ==
+webpack@5.0.0-rc.5:
+  version "5.0.0-rc.5"
+  resolved "https://registry.yarnpkg.com/webpack/-/webpack-5.0.0-rc.5.tgz#0414565638ffdd977ac89be5c8a3dbbe222930c4"
+  integrity sha512-I0VE47M678nRbHzBfExSLHZFYrT7zbixM9sUU2f9/cRybMsEPHLXyZepRp3RGPBfjCjR29IsysN5a80dCCJ8aQ==
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.45"
@@ -9067,7 +9072,7 @@ webpack@5.0.0-rc.3:
     "@webassemblyjs/helper-module-context" "1.9.0"
     "@webassemblyjs/wasm-edit" "1.9.0"
     "@webassemblyjs/wasm-parser" "1.9.0"
-    acorn "^7.4.0"
+    acorn "^8.0.3"
     browserslist "^4.14.3"
     chrome-trace-event "^1.0.2"
     enhanced-resolve "^5.2.0"
@@ -9080,7 +9085,7 @@ webpack@5.0.0-rc.3:
     mime-types "^2.1.27"
     neo-async "^2.6.2"
     pkg-dir "^4.2.0"
-    schema-utils "^2.7.0"
+    schema-utils "^3.0.0"
     tapable "^2.0.0"
     terser-webpack-plugin "^4.1.0"
     watchpack "^2.0.0"
