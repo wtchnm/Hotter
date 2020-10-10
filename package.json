@@ -4,10 +4,10 @@
 	"license": "MIT",
 	"scripts": {
 		"commit": "git cz",
-		"start": "cross-env NODE_ENV=development node --no-deprecation node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./.config/webpack/webpack.dev.js",
-		"build": "cross-env NODE_ENV=production node --no-deprecation node_modules/webpack/bin/webpack.js --config ./.config/webpack/webpack.prod.js",
-		"analyze": "cross-env NODE_ENV=production node --no-deprecation node_modules/webpack/bin/webpack.js --env.analyze --config ./.config/webpack/webpack.prod.js",
-		"profile": "cross-env NODE_ENV=production node --no-deprecation node_modules/webpack/bin/webpack.js --env.profile --config ./.config/webpack/webpack.prod.js --profile --json > stats.json",
+		"start": "cross-env NODE_ENV=development node --no-deprecation node_modules/webpack-dev-server/bin/webpack-dev-server.js --config ./.config/webpack/webpack.development.js",
+		"build": "cross-env NODE_ENV=production node --no-deprecation node_modules/webpack/bin/webpack.js --config ./.config/webpack/webpack.production.js",
+		"analyze": "cross-env NODE_ENV=production node --no-deprecation node_modules/webpack/bin/webpack.js --env.analyze --config ./.config/webpack/webpack.production.js",
+		"profile": "cross-env NODE_ENV=production node --no-deprecation node_modules/webpack/bin/webpack.js --env.profile --config ./.config/webpack/webpack.production.js --profile --json > stats.json",
 		"serve": "serve -s dist"
 	},
 	"devDependencies": {
