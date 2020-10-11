@@ -12,5 +12,5 @@
     "isolatedModules": true,
     "baseUrl": "src"
   },
-  "include": [".webpack", "src", "tailwind.config.js"]
+  "include": [".config/*.js", "src", "tailwind.config.js"]
 }

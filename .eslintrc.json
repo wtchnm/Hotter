@@ -40,12 +40,12 @@
 
     "import/no-extraneous-dependencies": [
       "error",
-      { "devDependencies": [".config/webpack/**"] }
+      { "devDependencies": [".config/*"] }
     ]
   },
   "overrides": [
     {
-      "files": [".config/webpack/**"],
+      "files": [".config/*"],
       "rules": {
         "@typescript-eslint/no-var-requires": "off"
       }
