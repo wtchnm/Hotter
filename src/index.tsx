@@ -1,6 +1,6 @@
+import App from "components/App";
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/App";
 import "./global.css";
 
 if ("serviceWorker" in navigator && process.env.NODE_ENV === "production") {
