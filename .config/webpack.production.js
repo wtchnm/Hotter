@@ -80,6 +80,13 @@ module.exports = (environment) => ({
                 ],
               ],
               plugins: [
+                [
+                  "module-resolver",
+                  {
+                    extensions: [".js", ".ts", ".tsx"],
+                    root: ["./src"],
+                  },
+                ],
                 ["@babel/plugin-transform-runtime", { corejs: 3 }],
                 ["@babel/plugin-proposal-class-properties", { loose: true }],
               ],

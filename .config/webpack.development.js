@@ -56,6 +56,13 @@ module.exports = {
               ],
               plugins: [
                 "react-refresh/babel",
+                [
+                  "module-resolver",
+                  {
+                    extensions: [".js", ".ts", ".tsx"],
+                    root: ["./src"],
+                  },
+                ],
                 ["@babel/plugin-proposal-class-properties", { loose: true }],
               ],
             },
