@@ -4,10 +4,10 @@
   "license": "MIT",
   "scripts": {
     "commit": "git cz",
-    "start": "cross-env NODE_ENV=development webpack serve --config .config/webpack.development.js",
-    "build": "cross-env NODE_ENV=production webpack --config .config/webpack.production.js",
-    "analyze": "cross-env NODE_ENV=production webpack --env.analyze --config .config/webpack.production.js",
-    "profile": "cross-env NODE_ENV=production webpack --env.profile --config .config/webpack.production.js --profile --json > stats.json",
+    "start": "cross-env NODE_ENV=development webpack serve --config .webpack/webpack.development.js",
+    "build": "cross-env NODE_ENV=production webpack --config .webpack/webpack.production.js",
+    "analyze": "cross-env NODE_ENV=production webpack --env analyze --config .webpack/webpack.production.js",
+    "profile": "cross-env NODE_ENV=production webpack --env profile --config .webpack/webpack.production.js --profile --json > stats.json",
     "serve": "serve -s dist"
   },
   "devDependencies": {
