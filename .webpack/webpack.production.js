@@ -17,11 +17,23 @@ module.exports = (environment) => ({
     filename: "[name].[contenthash].js",
     path: path.resolve("dist"),
   },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+  },
   resolve: { extensions: [".tsx", ".ts", ".js"] },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
-      patterns: [{ from: "public" }],
+      patterns: [
+        {
+          from: "public",
+          globOptions: {
+            ignore: ["**/index.html"],
+          },
+        },
+      ],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve("public/index.html"),

@@ -1,7 +1,9 @@
 module.exports = {
-  purge: ["./src/**/*.tsx"],
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
+  purge: {
+    content: ["public/index.html", "src/**/*.tsx"],
+    preserveHtmlElements: false,
+    options: {
+      keyframes: true,
+    },
   },
 };
