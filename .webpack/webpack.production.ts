@@ -1,14 +1,15 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const workboxPlugin = require("workbox-webpack-plugin");
-const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import CopyWebpackPlugin from "copy-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "path";
+import webpack from "webpack";
+import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import workboxPlugin from "workbox-webpack-plugin";
 
-/**
- * @param {{ analyze: boolean }} environment */
-module.exports = (environment) => ({
+const config: (environment: { analyze: boolean }) => webpack.Configuration = (
+  environment
+) => ({
   mode: "production",
   target: "web",
   devtool: "source-map",
@@ -53,7 +54,7 @@ module.exports = (environment) => ({
       new BundleAnalyzerPlugin({
         analyzerHost: "localhost",
       }),
-  ].filter(Boolean),
+  ].filter(Boolean) as webpack.Configuration["plugins"],
   module: {
     rules: [
       {
@@ -130,3 +131,5 @@ module.exports = (environment) => ({
     ],
   },
 });
+
+export default config;

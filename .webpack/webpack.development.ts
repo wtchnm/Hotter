@@ -1,9 +1,10 @@
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import path from "path";
+import webpack from "webpack";
+import "webpack-dev-server";
 
-module.exports = {
+const config: webpack.Configuration = {
   mode: "development",
   target: "web",
   devtool: "cheap-module-source-map",
@@ -93,3 +94,5 @@ module.exports = {
     ],
   },
 };
+
+export default config;
