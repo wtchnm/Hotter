@@ -50,7 +50,7 @@ const config: webpack.Configuration = {
                 [
                   "@babel/preset-react",
                   {
-                    useBuiltIns: true,
+                    runtime: "automatic",
                     development: true,
                   },
                 ],

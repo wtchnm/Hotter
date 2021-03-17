@@ -76,7 +76,7 @@ const config: (environment: { analyze: boolean }) => webpack.Configuration = (
                 [
                   "@babel/preset-react",
                   {
-                    useBuiltIns: true,
+                    runtime: "automatic",
                   },
                 ],
                 [
