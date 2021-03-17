@@ -20,10 +20,7 @@
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:unicorn/recommended",
-    "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/react",
-    "prettier/unicorn"
+    "prettier"
   ],
   "rules": {
     "no-void": ["error", { "allowAsStatement": true }],
