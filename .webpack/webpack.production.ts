@@ -122,7 +122,7 @@ const config: (environment: { analyze: boolean }) => webpack.Configuration = (
             loader: "postcss-loader",
             options: {
               postcssOptions: {
-                plugins: ["tailwindcss", "autoprefixer", "cssnano"],
+                plugins: ["@tailwindcss/jit", "autoprefixer", "cssnano"],
               },
             },
           },
