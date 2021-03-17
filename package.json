@@ -1,7 +1,7 @@
 {
   "name": "hotter",
   "version": "1.0.5",
-  "license": "Unlicense",
+  "license": "MIT",
   "scripts": {
     "commit": "git cz",
     "start": "webpack serve --node-env=development --config .webpack/webpack.development.ts",
